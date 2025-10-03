@@ -1,6 +1,9 @@
+version: "3.9"
+
 services:
   api:
     build: .  
+    container_name: api-onepiece
     ports:
       - "3000:3000"  
     environment:
@@ -17,6 +20,7 @@ services:
 
   db:
     image: mysql:8.0  
+    container_name: mysql-onepiece
     restart: always  
     environment:
       MYSQL_ROOT_PASSWORD: root123
@@ -25,7 +29,7 @@ services:
       - "3306:3306"  
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./src/config/init.sql:/docker-entrypoint-initdb.d/init.sql  # 👈 este es el cambio importante
+      - ./src/config/init.sql:/docker-entrypoint-initdb.d/init.sql 
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot123"]
       interval: 5s
