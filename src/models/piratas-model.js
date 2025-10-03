@@ -1,6 +1,6 @@
+// src/models/piratas-model.js
 class Pirata {
-    constructor(id, nombre, apodo, fruta_del_diablo, tripulacion, edad, recompesa) {
-        this.id = id;
+    constructor(nombre, apodo, fruta_del_diablo, tripulacion, edad, recompesa) {
         this.nombre = nombre;
         this.apodo = apodo;
         this.fruta_del_diablo = fruta_del_diablo;
