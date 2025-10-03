@@ -25,6 +25,7 @@ services:
       - "3306:3306"  
     volumes:
       - mysql-data:/var/lib/mysql
+      - ./src/config/init.sql:/docker-entrypoint-initdb.d/init.sql  # 👈 este es el cambio importante
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot123"]
       interval: 5s
